@@ -46,7 +46,7 @@ class Learner(models.Model):
     def __str__(self):
         return self.name
 
-
 class Submission(models.Model):
     learner = models.ForeignKey(Learner, on_delete=models.CASCADE)
-    score = models.IntegerField()
+    choices = models.ManyToManyField(Choice)
+    submission_date = models.DateTimeField(auto_now_add=True)
